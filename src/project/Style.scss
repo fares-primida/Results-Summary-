@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,500;0,700;0,800;1,500;1,700;1,800&display=swap');
+@import './Mixens';
+
+// Font 
+$Hanken: 'Hanken Grotesk', sans-serif;
+$Typography: 18px;
+
+
+// Primary
+$Light-red: hsl(0, 100%, 67%);
+$Orangey-yellow: hsl(39, 100%, 56%);
+$Green-teal: hsl(166, 100%, 37%);
+$Cobalt-blue: hsl(234, 85%, 45%);
+
+
+// #Gradients
+$Light-slate-blue-background: hsl(252, 100%, 67%);
+$Light-royal-blue-background: hsl(241, 81%, 54%);
+$Violet-blue-circle: hsla(256, 72%, 46%, 1);
+$Persian-blue-circle: hsla(241, 72%, 46%, 0);
+
+
+//  Neutral
+$White: hsl(0, 0%, 100%);
+$Pale-blue: hsl(221, 100%, 96%);
+$Light-lavender: hsl(241, 100%, 89%);
+$Dark-gray-blue: hsl(224, 30%, 27%);
+
+.container {
+    @include Position-And-Size(default , 620px , 400px);
+    background-color: $White;
+    box-shadow: 0 7px 10px $Light-lavender;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .result {
+        @include Position-And-Size(default , 100% , 100%);
+        background: linear-gradient(to bottom , $Light-royal-blue-background , $Cobalt-blue);
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4 , auto);
+        .header {
+            @include Center(flex , center , center);
+            font-family: $Hanken;
+            font-size: 20px;
+            color: $Light-lavender;
+            margin-top: 10px;
+        }
+        .circle {
+            @include Center(flex , center , center);
+            .CircleBox {
+                @include Center(flex , center , center);
+                @include Position-And-Size(default , 180px , 180px);
+                background: linear-gradient(to bottom , $Cobalt-blue , $Light-royal-blue-background  );
+                border-radius: 50%;
+                flex-direction: column;
+                font-family: $Hanken;
+                h3 {
+                    color: $Pale-blue;
+                    font-size: 50px;
+                    font-weight: 800;
+                }
+                span {
+                    color: $Light-lavender;
+                    opacity: 0.5;
+                }
+            }
+        }
+        .title {
+            @include Center(flex , center , center);
+            color: $White;
+            font-family: $Hanken;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .Description {
+            @include Center(flex , center , center);
+            color: $Light-lavender;
+            font-family: $Hanken;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+    }
+    .results {
+        @extend .result;
+        background: #fff;
+        display: grid;
+        grid-template-rows: 20% 60% 20%;
+        .Summery {
+            padding: 0px 10px;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            color: #000;
+            font-family: $Hanken;
+            font-weight: 700;
+        }
+        .EndResults {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4 , 1fr);
+        }
+    }
+}
