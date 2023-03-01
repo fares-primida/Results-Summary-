@@ -1,5 +1,46 @@
-import React from 'react'
+import React, { createElement } from 'react'
 import './Style.scss'
+import {data} from './Data'
+
+    function CreateElements({ MC, IS, H2C, H5C }) {
+    return React.createElement(
+    'div',
+    { className: MC },
+    createElement(
+        'div',
+        { className: "BContainer" },
+        createElement(
+        'div',
+        { className: "name" },
+        createElement('span', null ,createElement('img', { src: IS })),
+        createElement('h4', null, H2C)
+        ),
+        createElement(
+        'div',
+        { className: "score" },
+        createElement('h5', null, H5C),
+        createElement('span', null, "/ 100")
+        )
+    )
+    );
+    }
+
+    const Elements = () => {
+        for (let i = 0; i < data.length; i++) {
+        content.push(
+            <CreateElements
+            key={i}
+            MC={data[i].MainColor}
+            IS={data[i].icon}
+            H2C={data[i].category}
+            H5C={data[i].score}
+            />
+        );
+    }
+    return content;
+    };
+
+    const content = []
 
 const Project = () => {
     return (
@@ -24,7 +65,9 @@ const Project = () => {
                 <div className="Summery">
                     Summary
                 </div>
-                <div className="EndResults"></div>
+                <div className="EndResults">
+                    <Elements />
+                </div>
                 <div className="btn"></div>
             </div>
         </div>

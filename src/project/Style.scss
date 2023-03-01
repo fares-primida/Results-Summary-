@@ -3,14 +3,14 @@
 
 // Font 
 $Hanken: 'Hanken Grotesk', sans-serif;
-$Typography: 18px;
 
 
 // Primary
-$Light-red: hsl(0, 100%, 67%);
-$Orangey-yellow: hsl(39, 100%, 56%);
-$Green-teal: hsl(166, 100%, 37%);
-$Cobalt-blue: hsl(234, 85%, 45%);
+$red: hsl(0, 100%, 67%);
+$orange: hsl(39, 100%, 56%);
+$green: hsl(166, 100%, 37%);
+$blue: hsl(234, 85%, 45%);
+
 
 
 // #Gradients
@@ -35,7 +35,7 @@ $Dark-gray-blue: hsl(224, 30%, 27%);
     grid-template-columns: 1fr 1fr;
     .result {
         @include Position-And-Size(default , 100% , 100%);
-        background: linear-gradient(to bottom , $Light-royal-blue-background , $Cobalt-blue);
+        background: linear-gradient(to bottom , $Light-royal-blue-background , $blue);
         border-radius: 20px;
         display: grid;
         grid-template-columns: 1fr;
@@ -52,7 +52,7 @@ $Dark-gray-blue: hsl(224, 30%, 27%);
             .CircleBox {
                 @include Center(flex , center , center);
                 @include Position-And-Size(default , 180px , 180px);
-                background: linear-gradient(to bottom , $Cobalt-blue , $Light-royal-blue-background  );
+                background: linear-gradient(to bottom , $blue , $Light-royal-blue-background  );
                 border-radius: 50%;
                 flex-direction: column;
                 font-family: $Hanken;
@@ -102,6 +102,52 @@ $Dark-gray-blue: hsl(224, 30%, 27%);
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(4 , 1fr);
+            @each $color in 'red' 'orange' 'green' 'blue' {
+                .#{$color} {
+                    @include Center(flex , center , center);
+                    .BContainer {
+                        @include Center(flex , center , space-between);
+                        width: 95%;
+                        height: 90%;
+                        border-radius: 5px;
+                        background: #fff;
+                        .name {
+                            @include Center(flex , center , start);
+                            padding: 0px 7px;
+                            width: 150px;
+                            height: 100%;
+                            span {
+                                margin-right: 5px;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                            h4 {
+                                font-family: $Hanken;
+                                font-weight: 700;
+                                color: #{$color};
+                            }
+                        }
+                        .score {
+                            @include Center(flex , center , end);
+                            padding: 0px 7px;
+                            width: 150px;
+                            height: 100%;
+                            h5 {
+                                font-size: 18px;
+                                font-family: $Hanken;
+                                font-weight: 700;
+                                margin-right: 5px;
+                            }
+                            span {
+                                font-size: 16px;
+                                font-family: $Hanken;
+                                color: #777;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
