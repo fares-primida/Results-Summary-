@@ -26,6 +26,12 @@ $Pale-blue: hsl(221, 100%, 96%);
 $Light-lavender: hsl(241, 100%, 89%);
 $Dark-gray-blue: hsl(224, 30%, 27%);
 
+
+
+
+
+// Project
+
 .container {
     @include Position-And-Size(default , 620px , 400px);
     background-color: $White;
@@ -147,6 +153,42 @@ $Dark-gray-blue: hsl(224, 30%, 27%);
                         }
                     }
                 }
+            }
+        }
+        .btn {
+        @include Center(flex , center , center);
+        button {
+            @include Position-And-Size(default , 250px , 40px);
+            border: none;
+            background: $Dark-gray-blue;
+            color: $White;
+            border-radius: 20px;
+            font-family: $Hanken;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            &:hover {
+                background-color: $Violet-blue-circle;
+            }
+        }
+    }
+}
+}
+
+
+@media screen and (max-width: 415px) {
+    .container {
+        @include Position-And-Size(default , 100% , 100%);
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        .result {
+            grid-row: 1;
+            grid-gap: 5px;
+        }
+        .results {
+            grid-row: 2;
+            .btn {
+                padding-bottom: 10px;
             }
         }
     }
